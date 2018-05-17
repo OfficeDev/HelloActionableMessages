@@ -11,10 +11,19 @@ module.exports = function (context, req) {
         }, context.log)
     }
     else {
-        context.res = {
-            status: 400,
-            body: "Invalid request"
-        };
-        context.done();
+
+        fs = require('fs');
+        fs.readFile('action/instruction.html', 'utf8', function (err, data) {
+            if (err) {
+                context.log(err);
+            }
+            context.res = {
+                status: 200,
+                isRaw: true,
+                headers: {"content-type": "text/html"},
+                body: data
+            };
+            context.done();
+        });
     }
 };
