@@ -1,0 +1,15 @@
+{
+  "name": "helloactionablemessages",
+  "version": "1.0.0",
+  "description": "Actionable Message Sample",
+  "scripts": {
+    "code": "func host start --debug vscode"
+  },
+  "dependencies": {
+    "jsonwebtoken": "7.x",
+    "request": "2.x",
+    "rsa-pem-from-mod-exp": "^0.8.4",
+    "base64url": "^1.0.6"
+  },
+  "license": "MIT"
+}
