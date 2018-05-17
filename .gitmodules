@@ -1,3 +1,4 @@
+
 [submodule "outlook-actionable-messages-node-token-validation"]
 	path = outlook-actionable-messages-node-token-validation
-	url = git@github.com:OfficeDev/outlook-actionable-messages-node-token-validation.git
+	url = https://github.com/OfficeDev/outlook-actionable-messages-node-token-validation.git
