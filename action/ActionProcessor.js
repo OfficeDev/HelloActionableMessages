@@ -45,12 +45,17 @@ class ActionProcessor{
                 // The value of the header will be displayed to the user.
 
                 var card = {
-                    "@type": "MessageCard",
-                    "@context": "http://schema.org/extensions",
-                    "summary": "Hello " + result.actionPerformer + ". Your action email was from " + result.sender,
-                    "title": "Hello " + result.actionPerformer,
-                    "themeColor": "009F9C"
-                }
+                    "type": "AdaptiveCard",
+                    "version": "1.0",
+                    "body": [
+                        {
+                            "size": "large",
+                            "text": "Hello " + result.actionPerformer + ". Your action email was from " + result.sender,
+                            "wrap": true,
+                            "type": "TextBlock"
+                        }
+                    ]
+                };
 
                 cb({
                     status: 200,
