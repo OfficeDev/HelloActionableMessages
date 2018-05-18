@@ -1,7 +1,16 @@
 
 # HelloActionableMessages
 
+Click the following Deploy to Azure bottun. Give it an app name.
+
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+
+Wait till it finished.
+
+Then you have your first actionable message provider deployed. For FREE!
+
+Open https://<your-app-name>.azurewebsites.net/api/action in your browser and follow the instructions there.
+
 
 # Contributing
 
