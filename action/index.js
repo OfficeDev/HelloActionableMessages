@@ -13,7 +13,7 @@ module.exports = function (context, req) {
     else {
 
         fs = require('fs');
-        fs.readFile('action/instruction.html', 'utf8', function (err, data) {
+        fs.readFile(__dirname +'/instruction.html', 'utf8', function (err, data) {
             if (err) {
                 context.log(err);
             }
