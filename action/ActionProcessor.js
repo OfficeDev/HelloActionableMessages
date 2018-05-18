@@ -2,6 +2,9 @@ var validation = require('../outlook-actionable-messages-node-token-validation/A
 
 class ActionProcessor{
     static process(headers, body, cb, logFun = null){
+        // Log the action request, could be found in fuction logs
+        logFun(headers);
+        logFun(body);
         var auth = headers['authorization'].trim().split(' ');
         if (auth.length == 2 && auth[0].toLowerCase() == 'bearer') {
             var token = auth[1];
