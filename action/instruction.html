@@ -6,213 +6,267 @@
         <title>Hello Actionable Messages</title>
     </head>
     <body>
-        <div>
-            Your have successfully deployed an action endpoint. Your endpoint url is:
-        </div>
+        <p>
+            Your have successfully deployed an action endpoint. Your action endpoint url is:
+        </p>
         <input id="actionUrl" type="text" style="width:80%" />
-        <div>
-            Please copy the following template to the playground and send it to yourself by clicking "Send via email" button
-        </div>
+        <p>
+            Please copy the following template to the <a href="https://messagecardplayground.azurewebsites.net/" target="_blank">playground</a> and send it to yourself by clicking "Send via email" button
+        </p>
         <pre style="display:none;" id="cardTemplate">{
-                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-                "type": "AdaptiveCard",
-                "version": "1.0",
-                "style": "emphasis",
-                "body": [
-                    {
-                        "type": "Container",
-                        "bleed": true,
-                        "items": [
-                            {
-                                "type": "ColumnSet",
-                                "columns": [
-                                    {
-                                        "width": "auto",
-                                        "verticalContentAlignment": "center",
-                                        "items": [
-                                            {
-                                                "type": "Image",
-                                                "height": "30px",
-                                                "url": "https://cdn2.hubspot.net/hubfs/443262/header_assets/engage_logo.png?t=1459547965461"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "width": "stretch",
-                                        "verticalContentAlignment": "center",
-                                        "items": [
-                                            {
-                                                "type": "TextBlock",
-                                                "text": "All survey responses are anonymous. [Learn more](http://www.tinypulse.com)",
-                                                "horizontalAlignment": "right",
-                                                "wrap": true
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "Container",
-                        "style": "default",
-                        "items": [
-                            {
-                                "type": "ColumnSet",
-                                "horizontalAlignment": "center",
-                                "columns": [
-                                    {
-                                        "width": "48px",
-                                        "verticalContentAlignment": "center",
-                                        "items": [
-                                            {
-                                                "type": "Image",
-                                                "spacing": "large",
-                                                "url": "http://messagecardplayground.azurewebsites.net/assets/TINYPulseQuestionIcon.png",
-                                                "horizontalAlignment": "center"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "width": "stretch",
-                                        "verticalContentAlignment": "center",
-                                        "items": [
-                                            {
-                                                "type": "TextBlock",
-                                                "spacing": "large",
-                                                "size": "large",
-                                                "text": "**How likely would you be to refer someone to work here?**",
-                                                "wrap": true
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "Input.ChoiceSet",
-                                "id": "score",
-                                "placeholder": "Select an option",
-                                "choices": [
-                                    {
-                                        "title": "1 - Extremely unlikely \"I would physically deter them down to my last breath\"",
-                                        "value": "1"
-                                    },
-                                    {
-                                        "title": "2",
-                                        "value": "2"
-                                    },
-                                    {
-                                        "title": "3",
-                                        "value": "3"
-                                    },
-                                    {
-                                        "title": "4",
-                                        "value": "4"
-                                    },
-                                    {
-                                        "title": "5",
-                                        "value": "5"
-                                    },
-                                    {
-                                        "title": "6",
-                                        "value": "6"
-                                    },
-                                    {
-                                        "title": "7",
-                                        "value": "7"
-                                    },
-                                    {
-                                        "title": "8",
-                                        "value": "8"
-                                    },
-                                    {
-                                        "title": "9",
-                                        "value": "9"
-                                    },
-                                    {
-                                        "title": "10 - Extremely likely (\"It's the best place to work\")",
-                                        "value": "10"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "Input.Text",
-                                "id": "feedback",
-                                "isMultiline": true,
-                                "placeholder": "Feel free to elaborate"
-                            },
-                            {
-                                "type": "ActionSet",
-                                "horizontalAlignment": "center",
-                                "actions": [
-                                    {
-                                        "type": "Action.Http",
-                                        "url": "{actionUrl}",
-                                        "body": "{\"score\": \"{{score.value}}\", \"feedback\" : \"{{feedback.value}}\"}",
-                                        "title": "Respond anonymously"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "Container",
-                        "items": [
-                            {
-                                "type": "ColumnSet",
-                                "columns": [
-                                    {
-                                        "width": "stretch",
-                                        "verticalContentAlignment": "center",
-                                        "items": [
-                                            {
-                                                "type": "TextBlock",
-                                                "text": "**Streak:**"
-                                            },
-                                            {
-                                                "type": "TextBlock",
-                                                "spacing": "none",
-                                                "text": "**0** survey(s) in a row"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "width": "stretch",
-                                        "verticalContentAlignment": "center",
-                                        "items": [
-                                            {
-                                                "type": "TextBlock",
-                                                "text": "Having trouble?",
-                                                "horizontalAlignment": "right"
-                                            },
-                                            {
-                                                "type": "TextBlock",
-                                                "spacing": "none",
-                                                "text": "[Click here](http://www.tinypulse.com) to go to TINYPulse to respond",
-                                                "horizontalAlignment": "right",
-                                                "wrap": true
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }</pre>
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "originator": "{originator}",
+    "version": "1.0",
+    "style": "emphasis",
+    "body": [
+        {
+            "type": "Container",
+            "bleed": true,
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "width": "auto",
+                            "verticalContentAlignment": "center",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "height": "30px",
+                                    "url": "https://cdn2.hubspot.net/hubfs/443262/header_assets/engage_logo.png?t=1459547965461"
+                                }
+                            ]
+                        },
+                        {
+                            "width": "stretch",
+                            "verticalContentAlignment": "center",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "All survey responses are anonymous. [Learn more](http://www.tinypulse.com)",
+                                    "horizontalAlignment": "right",
+                                    "wrap": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "style": "default",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "horizontalAlignment": "center",
+                    "columns": [
+                        {
+                            "width": "48px",
+                            "verticalContentAlignment": "center",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "spacing": "large",
+                                    "url": "http://messagecardplayground.azurewebsites.net/assets/TINYPulseQuestionIcon.png",
+                                    "horizontalAlignment": "center"
+                                }
+                            ]
+                        },
+                        {
+                            "width": "stretch",
+                            "verticalContentAlignment": "center",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "spacing": "large",
+                                    "size": "large",
+                                    "text": "**How likely would you be to refer someone to work here?**",
+                                    "wrap": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Input.ChoiceSet",
+                    "id": "score",
+                    "placeholder": "Select an option",
+                    "choices": [
+                        {
+                            "title": "1 - Extremely unlikely \"I would physically deter them down to my last breath\"",
+                            "value": "1"
+                        },
+                        {
+                            "title": "2",
+                            "value": "2"
+                        },
+                        {
+                            "title": "3",
+                            "value": "3"
+                        },
+                        {
+                            "title": "4",
+                            "value": "4"
+                        },
+                        {
+                            "title": "5",
+                            "value": "5"
+                        },
+                        {
+                            "title": "6",
+                            "value": "6"
+                        },
+                        {
+                            "title": "7",
+                            "value": "7"
+                        },
+                        {
+                            "title": "8",
+                            "value": "8"
+                        },
+                        {
+                            "title": "9",
+                            "value": "9"
+                        },
+                        {
+                            "title": "10 - Extremely likely (\"It's the best place to work\")",
+                            "value": "10"
+                        }
+                    ]
+                },
+                {
+                    "type": "Input.Text",
+                    "id": "feedback",
+                    "isMultiline": true,
+                    "placeholder": "Feel free to elaborate"
+                },
+                {
+                    "type": "ActionSet",
+                    "horizontalAlignment": "center",
+                    "actions": [
+                        {
+                            "type": "Action.Http",
+                            "url": "{actionUrl}",
+                            "body": "{\"score\": \"{{score.value}}\", \"feedback\" : \"{{feedback.value}}\"}",
+                            "title": "Respond anonymously"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "width": "stretch",
+                            "verticalContentAlignment": "center",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "**Streak:**"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "spacing": "none",
+                                    "text": "**0** survey(s) in a row"
+                                }
+                            ]
+                        },
+                        {
+                            "width": "stretch",
+                            "verticalContentAlignment": "center",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Having trouble?",
+                                    "horizontalAlignment": "right"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "spacing": "none",
+                                    "text": "[Click here](http://www.tinypulse.com) to go to TINYPulse to respond",
+                                    "horizontalAlignment": "right",
+                                    "wrap": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}</pre>
         <textarea id="cardContent" style="width: 80%; height: 400px"></textarea>
 
+        <p>
+            Click the button and you have your first action done!
+        </p>
+        <p>
+            Next step:
+        </p>
+        <p>
+            Go to <a href="https://outlook.office.com/connectors/oam/publish" target="_blank">developer dashboard</a> and register your own actionable message provider and copy your originator from the registration page to the following text box
+        </p>
+
+        <div>
+            <input id="originator" type="text" style="width:80%" />
+        </div>
+  
+        <textarea style="display:none;" id="mailHtmlTemplate"><html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="application/adaptivecard+json">
+    {adaptiveCardContent}
+    </script>
+</head>
+<body>
+Visit the <a href="https://docs.microsoft.com/outlook/actionable-messages">Outlook Dev Portal</a> to learn more about Actionable Messages.
+</body>
+</html></textarea>
+    <div id="step2" style="display:none;">
+        <p>
+            Now you could send the payload from your registered sender email address via any mail client. The raw html body should be:
+        </p>
+        <textarea id="htmlContent" style="width: 80%; height: 400px"></textarea>
+    </div>
+    
         <script type="text/javascript">
             $(document).ready(function(){
                 var actionUrl = window.location;
                 $("#actionUrl").val(actionUrl);
                 
+                prepareSample();
+
+                $("#originator").change(function(){
+                    prepareSample();
+                    if($("#originator").val().length > 0){
+                        $("#step2").show();
+                    }else{
+                        $("#step2").hide();
+                    }
+                });
+            });
+
+            function prepareSample(){
+                var actionUrl = $("#actionUrl").val();
+                var originator = $("#originator").val();
+                
                 var cardTemplate = $("#cardTemplate").html();
 
-                var card = cardTemplate.replace("{actionUrl}", actionUrl);
+                var card = cardTemplate.replace("{actionUrl}", actionUrl).replace("{originator}", originator);
 
                 $("#cardContent").val(card);
-            });
+
+                var htmlTemplate = $("#mailHtmlTemplate").val();
+
+                var htmlContent = htmlTemplate.replace("{adaptiveCardContent}", card);
+                $("#htmlContent").val(htmlContent);
+            }
         </script>
     </body>
 </html>
