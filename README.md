@@ -7,12 +7,11 @@ Give it an app name.
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-Wait till it finished.
-
-Then you have your first actionable message provider deployed. For FREE!
+Wait 5 minutes after reaching step "Setting up Source Control". The deployment should have finished but the UX might not show success.
 
 Open https://\[your-app-name\].azurewebsites.net/api/action in your browser and follow the instructions there.
 
+You could then check the logs and modify the code online at https://portal.azure.com.
 
 # Contributing
 
