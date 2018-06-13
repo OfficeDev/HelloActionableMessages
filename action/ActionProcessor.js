@@ -47,26 +47,44 @@ class ActionProcessor{
                 // You should also return the CARD-ACTION-STATUS header in the response.
                 // The value of the header will be displayed to the user.
 
-                var card = {
-                    "type": "AdaptiveCard",
-                    "version": "1.0",
-                    "body": [
-                        {
-                            "size": "large",
-                            "text": "Hello " + result.actionPerformer + ". Your action email was from " + result.sender,
-                            "wrap": true,
-                            "type": "TextBlock"
-                        }
-                    ]
-                };
+                var action = body.action;
 
-                cb({
-                    status: 200,
-                    headers: {'CARD-UPDATE-IN-BODY': 'true'},
-                    body: card
-                })
-        });
+                var comment = body.comment;
+                
+                // User's input need to be json encoded to prevent breaking the response json on text replacement
+                comment = JSON.stringify(comment);
+                comment = comment.substr(1, comment.length - 2);
 
+                // Usually these should be constant from your app config.
+                var originator = body.originator;
+                var actionUrl = body.actionUrl;
+
+                var template = "expense_approved.json";
+
+                if (action === "decline"){
+                    template = "expense_declined.json";
+                }
+
+                var fs = require('fs');
+                fs.readFile(__dirname +'/' + template, 'utf8', function (err, data) {
+                    if (err) {
+                        context.log(err);
+                        cb({
+                            status: 500,
+                            body: err
+                        });
+                    }
+
+                    var cardRaw = data.replace(/\{actionUrl\}/g, actionUrl).replace(/\{originator\}/g, originator).replace(/\{user\}/g, result.actionPerformer).replace(/\{comment\}/g, comment);
+
+                    cb({
+                        status: 200,
+                        headers: {'CARD-UPDATE-IN-BODY': 'true'},
+                        body: JSON.parse(cardRaw)
+                    });
+                });
+            }
+        );
     }
 }
 

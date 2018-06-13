@@ -14,194 +14,144 @@
             Please copy the following template to the <a href="https://messagecardplayground.azurewebsites.net/" target="_blank">playground</a> and send it to yourself by clicking "Send via email" button
         </p>
         <pre style="display:none;" id="cardTemplate">{
-    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-    "type": "AdaptiveCard",
-    "originator": "{originator}",
-    "version": "1.0",
-    "style": "emphasis",
-    "body": [
-        {
-            "type": "Container",
-            "bleed": true,
-            "items": [
-                {
-                    "type": "ColumnSet",
-                    "columns": [
-                        {
-                            "width": "auto",
-                            "verticalContentAlignment": "center",
-                            "items": [
-                                {
-                                    "type": "Image",
-                                    "height": "30px",
-                                    "url": "https://cdn2.hubspot.net/hubfs/443262/header_assets/engage_logo.png?t=1459547965461"
-                                }
-                            ]
-                        },
-                        {
-                            "width": "stretch",
-                            "verticalContentAlignment": "center",
-                            "items": [
-                                {
-                                    "type": "TextBlock",
-                                    "text": "All survey responses are anonymous. [Learn more](http://www.tinypulse.com)",
-                                    "horizontalAlignment": "right",
-                                    "wrap": true
-                                }
-                            ]
-                        }
-                    ]
-                }
+            "$schema":"http://adaptivecards.io/schemas/adaptive-card.json",
+            "type":"AdaptiveCard",
+            "originator":"",
+            "version":"1.0",
+            "body":[
+               {
+                  "type":"ColumnSet",
+                  "columns":[
+         
+                     {
+                        "width":1,
+                        "items":[
+                           {
+                              "type":"Container",
+                              "padding":{
+                                 "left":"small"
+                              },
+                              "items":[
+                                 {
+                                    "type":"Image",
+                                    "url":"https://filedepot.blob.core.windows.net/build/logo.png"
+                                 }
+                              ]
+                           },
+                           {
+                              "type":"Container",
+                              "backgroundImage":"https://filedepot.blob.core.windows.net/build/header.png",
+                              "spacing":"small",
+                              "items":[
+                                 {
+                                    "type":"TextBlock",
+                                    "text":"Expense Report (ER-321377) for 1179 USD is available",
+                                    "size":"medium",
+                                    "color":"light",
+                                    "horizontalAlignment":"left",
+                                    "wrap":true
+                                 }
+                              ]
+                           },
+                           {
+                              "type":"Container",
+                              "padding":"small",
+                              "items":[
+                                 {
+                                    "type":"Image",
+                                    "id":"action_image",
+                                    "url":"https://filedepot.blob.core.windows.net/build/pending.png"
+                                 },
+                                 {
+                                    "type":"ColumnSet",
+                                    "columns":[
+                                       {
+                                          "type":"Column",
+                                          "width":"auto",
+                                          "items":[
+                                             {
+                                                "type":"Image",
+                                                "url":"https://filedepot.blob.core.windows.net/profile/9.png",
+                                                "style":"person"
+                                             }
+                                          ]
+                                       },
+                                       {
+                                          "type":"Column",
+                                          "width":"stretch",
+                                          "items":[
+                                             {
+                                                "type":"TextBlock",
+                                                "text":"**Miguel Garcia** submitted on 8th May"
+                                             },
+                                             {
+                                                "type":"TextBlock",
+                                                "text":"Travel & stay expenses for customer visit",
+                                                "spacing":"none",
+                                                "size":"small"
+                                             }
+                                          ]
+                                       },
+                                       {
+                                          "type":"Column",
+                                          "width":"auto",
+                                          "items":[
+                                             {
+                                                "type":"TextBlock",
+                                                "text":"$1179",
+                                                "size":"medium",
+                                                "weight":"bolder"
+                                             }
+                                          ]
+                                       }
+                                    ]
+                                 },
+                                 {
+                                    "type":"ActionSet",
+                                    "id":"expenseActions",
+                                    "horizontalAlignment":"left",
+                                    "actions":[
+                                       {
+                                          "type":"Action.Http",
+                                          "method":"post",
+                                          "url":"{actionUrl}",
+                                          "title":"Approve",
+                                          "body":"{\"action\": \"approve\", \"id\": \"ER-321377\", \"comment\":\"{{comment.value}}\", \"actionUrl\": \"{actionUrl}\", \"originator\": \"{originator}\"}"
+                                       },
+                                       {
+                                          "type":"Action.ShowCard",
+                                          "title":"Decline",
+                                          "card":{
+                                             "type":"AdaptiveCard",
+                                             "body":[
+                                                {
+                                                   "type":"Input.Text",
+                                                   "id":"comment",
+                                                   "isMultiline":true,
+                                                   "placeholder":"Comment (optional)"
+                                                }
+                                             ],
+                                             "actions":[
+                                                {
+                                                   "type":"Action.Http",
+                                                   "method":"post",
+                                                   "url":"{actionUrl}",
+                                                   "title":"OK",
+                                                   "body":"{\"action\": \"decline\", \"id\": \"ER-321377\", \"comment\":\"{{comment.value}}\", \"actionUrl\": \"{actionUrl}\", \"originator\": \"{originator}\"}"
+                                                }
+                                             ]
+                                          }
+                                       }
+                                    ]
+                                 }
+                              ]
+                           }
+                        ]
+                     }
+                  ]
+               }
             ]
-        },
-        {
-            "type": "Container",
-            "style": "default",
-            "items": [
-                {
-                    "type": "ColumnSet",
-                    "horizontalAlignment": "center",
-                    "columns": [
-                        {
-                            "width": "48px",
-                            "verticalContentAlignment": "center",
-                            "items": [
-                                {
-                                    "type": "Image",
-                                    "spacing": "large",
-                                    "url": "http://messagecardplayground.azurewebsites.net/assets/TINYPulseQuestionIcon.png",
-                                    "horizontalAlignment": "center"
-                                }
-                            ]
-                        },
-                        {
-                            "width": "stretch",
-                            "verticalContentAlignment": "center",
-                            "items": [
-                                {
-                                    "type": "TextBlock",
-                                    "spacing": "large",
-                                    "size": "large",
-                                    "text": "**How likely would you be to refer someone to work here?**",
-                                    "wrap": true
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "Input.ChoiceSet",
-                    "id": "score",
-                    "placeholder": "Select an option",
-                    "choices": [
-                        {
-                            "title": "1 - Extremely unlikely \"I would physically deter them down to my last breath\"",
-                            "value": "1"
-                        },
-                        {
-                            "title": "2",
-                            "value": "2"
-                        },
-                        {
-                            "title": "3",
-                            "value": "3"
-                        },
-                        {
-                            "title": "4",
-                            "value": "4"
-                        },
-                        {
-                            "title": "5",
-                            "value": "5"
-                        },
-                        {
-                            "title": "6",
-                            "value": "6"
-                        },
-                        {
-                            "title": "7",
-                            "value": "7"
-                        },
-                        {
-                            "title": "8",
-                            "value": "8"
-                        },
-                        {
-                            "title": "9",
-                            "value": "9"
-                        },
-                        {
-                            "title": "10 - Extremely likely (\"It's the best place to work\")",
-                            "value": "10"
-                        }
-                    ]
-                },
-                {
-                    "type": "Input.Text",
-                    "id": "feedback",
-                    "isMultiline": true,
-                    "placeholder": "Feel free to elaborate"
-                },
-                {
-                    "type": "ActionSet",
-                    "horizontalAlignment": "center",
-                    "actions": [
-                        {
-                            "type": "Action.Http",
-                            "url": "{actionUrl}",
-                            "method": "POST",
-                            "body": "{\"score\": \"{{score.value}}\", \"feedback\" : \"{{feedback.value}}\"}",
-                            "title": "Respond anonymously"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "Container",
-            "items": [
-                {
-                    "type": "ColumnSet",
-                    "columns": [
-                        {
-                            "width": "stretch",
-                            "verticalContentAlignment": "center",
-                            "items": [
-                                {
-                                    "type": "TextBlock",
-                                    "text": "**Streak:**"
-                                },
-                                {
-                                    "type": "TextBlock",
-                                    "spacing": "none",
-                                    "text": "**0** survey(s) in a row"
-                                }
-                            ]
-                        },
-                        {
-                            "width": "stretch",
-                            "verticalContentAlignment": "center",
-                            "items": [
-                                {
-                                    "type": "TextBlock",
-                                    "text": "Having trouble?",
-                                    "horizontalAlignment": "right"
-                                },
-                                {
-                                    "type": "TextBlock",
-                                    "spacing": "none",
-                                    "text": "[Click here](http://www.tinypulse.com) to go to TINYPulse to respond",
-                                    "horizontalAlignment": "right",
-                                    "wrap": true
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}</pre>
+         }</pre>
         <textarea id="cardContent" style="width: 80%; height: 400px"></textarea>
 
         <p>
@@ -259,7 +209,7 @@ Visit the <a href="https://docs.microsoft.com/outlook/actionable-messages">Outlo
                 
                 var cardTemplate = $("#cardTemplate").html();
 
-                var card = cardTemplate.replace("{actionUrl}", actionUrl).replace("{originator}", originator);
+                var card = cardTemplate.replace(/\{actionUrl\}/g, actionUrl).replace(/\{originator\}/g, originator);
 
                 $("#cardContent").val(card);
 
