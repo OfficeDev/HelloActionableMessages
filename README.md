@@ -1,9 +1,9 @@
 ---
 topic: sample
 products:
-- Office 365
+- office-365
 languages:
-- HTML
+- html
 extensions:
   contentType: samples
   createdDate: 5/17/2018 2:35:17 PM
