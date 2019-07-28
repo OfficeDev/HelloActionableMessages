@@ -1,9 +1,15 @@
 ---
 page_type: sample
 products:
+- office
+- office-outlook
 - office-365
 languages:
 - html
+- javascript
+description: "A sample showing how to use actionable messages in Outlook."
+urlFragment: outlook-actionable-messages
+azureDeploy: https://raw.githubusercontent.com/OfficeDev/HelloActionableMessages/master/azuredeploy.json
 extensions:
   contentType: samples
   createdDate: 5/17/2018 2:35:17 PM
