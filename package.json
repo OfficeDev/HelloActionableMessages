@@ -9,7 +9,7 @@
     "jsonwebtoken": "7.x",
     "request": "2.x",
     "rsa-pem-from-mod-exp": "^0.8.4",
-    "base64url": "^1.0.6"
+    "base64url": "^3.0.1"
   },
   "license": "MIT"
 }
